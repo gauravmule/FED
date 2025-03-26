@@ -1,0 +1,14 @@
+flask==3.0.2 
+flask-caching==2.1.0 
+flask-compress==1.14 
+flask-bcrypt==1.0.1 
+werkzeug==3.0.1 
+pymysql==1.1.0 
+opencv-python==4.9.0.80 
+deepface==0.0.89   
+tensorflow==2.16.1 
+keras==3.1.1 
+numpy==1.26.4 
+scikit-learn==1.4.0 
+matplotlib==3.8.3 
+bcrypt==4.1.2 

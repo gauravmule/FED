@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - Face Emotion Detection System{% endblock %}
+
+{% block content %}
+    <div class="box university-details">
+        <img src="{{ url_for('static', filename='university_logo.png') }}" 
+             alt="MIT ADT University Logo" 
+             class="university-logo">
+        <h2>MIT ADT University, Pune</h2>
+        <p>Department of Information Technology</p>
+        <p>School of Computing</p>
+    </div>
+
+    <div class="box guide-details">
+        <h3><i class="fas fa-chalkboard-teacher"></i> Project Guide</h3>
+        <p>Prof. Jyoti Nandimath</p>
+    </div>
+
+    <div class="box team-details">
+        <h3><i class="fas fa-users"></i> Team Members</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Name</th>
+                    <th>Roll Number</th>
+                    <th>Enrollment Number</th>
+                    <th>Specialization</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Gaurav Mule</td>
+                    <td>2225016</td>
+                    <td>MITU22BTIT0034</td>
+                    <td>CORE</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Krishnakant Laxne</td>
+                    <td>2225019</td>
+                    <td>MITU22BTIT0042</td>
+                    <td>CORE</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Rajwardhan Dhumal</td>
+                    <td>2225080</td>
+                    <td>MITU22BTIT0063</td>
+                    <td>CORE</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Mitanshu Sarode</td>
+                    <td>2225076</td>
+                    <td>MITU22BTIT0048</td>
+                    <td>SMAD</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

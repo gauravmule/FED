@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="box video-box">
+        <img src="{{ url_for('video_feed') }}" 
+             width="900" 
+             height="400" 
+             id="video-stream" 
+             alt="Live video feed">
+        <div>
+            <button id="start-btn"><i class="fas fa-play"></i> Start Session</button>
+            <button id="stop-btn" disabled><i class="fas fa-stop"></i> Stop Session</button>
+        </div>
+    </div>
+    
+    <div class="box" id="summary">
+        <h2><i class="fas fa-list"></i> Emotion Summary</h2>
+        <div id="summary-content"><p>No active session</p></div>
+    </div>
+
+    <div class="box instructions-box">
+        <h3><i class="fas fa-question-circle"></i> Instructions</h3>
+        <p>1. Click "Start Session" to begin detecting emotions.</p>
+        <p>2. Face the camera with good lighting for best results.</p>
+        <p>3. View the real-time emotion summary below the video.</p>
+        <p>4. Click "Stop Session" to end and log the data.</p>
+    </div>
+{% endblock %}

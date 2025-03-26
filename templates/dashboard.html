@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Face Emotion Detection System{% endblock %}
+
+{% block content %}
+    <div class="box welcome-box">
+        <p><i class="fas fa-user"></i> Welcome, {{ session.username or "User" }}!</p>
+    </div>
+
+    <div class="box filter-box">
+        <form method="GET" action="{{ url_for('dashboard') }}">
+            <label for="session_id"><i class="fas fa-filter"></i> Select Session:</label>
+            <select name="session_id" id="session_id" class="dropdown" onchange="this.form.submit()">
+                <option value="">All Sessions</option>
+                {% for session in sessions %}
+                    <option value="{{ session.id }}" {% if session.id|string == selected_session %}selected{% endif %}>
+                        Session #{{ session.id }} ({{ session.start_time.strftime('%Y-%m-%d %H:%M:%S') }})
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+    </div>
+
+    <div class="box stats-box">
+        <h3><i class="fas fa-chart-bar"></i> Session Statistics</h3>
+        <p><i class="fas fa-calendar"></i> Total Sessions: {{ stats.total_sessions }}</p>
+        <p><i class="fas fa-users"></i> Total Faces Detected: {{ stats.total_faces_detected }}</p>
+        <p><i class="fas fa-smile"></i> Most Common Emotion: {{ stats.most_common_emotion }}</p>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-box bar-chart-box">
+            <h3><i class="fas fa-chart-bar"></i> Bar Chart</h3>
+            <img src="data:image/png;base64,{{ bar_chart_data }}" alt="Emotion Distribution Bar Chart">
+        </div>
+        <div class="chart-box pie-chart-box">
+            <h3><i class="fas fa-chart-pie"></i> Pie Chart</h3>
+            <img src="data:image/png;base64,{{ pie_chart_data }}" alt="Emotion Proportions Pie Chart">
+        </div>
+    </div>
+
+    <div class="box info-box">
+        <h3><i class="fas fa-info-circle"></i> About This Project</h3>
+        <p>The Face Emotion Detection System is a web application designed to detect and analyze human emotions in real-time using facial recognition technology.</p>
+        <p>Built with Flask and the FER library, it identifies seven emotions: angry, disgust, fear, happy, sad, surprise, and neutral.</p>
+        <p>Developed by students at MIT ADT University, Pune, it leverages OpenCV for face detection and MySQL for data storage.</p>
+    </div>
+{% endblock %}
