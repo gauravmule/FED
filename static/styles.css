@@ -1,233 +1,363 @@
-body {
-    font-family: 'Helvetica', Arial, sans-serif;
+/* ================
+   BASE STYLES
+   ================ */
+   :root {
+    --primary-color: #000000;
+    --primary-dark: #333333;
+    --danger-color: #000000;
+    --danger-dark: #333333;
+    --dark-color: #000000;
+    --light-color: #ffffff;
+    --border-color: #000000;
+    --text-color: #000000;
+    --text-light: #333333;
+  }
+  
+  * {
     margin: 0;
     padding: 0;
-    background: white;
-    color: #333;
-    font-size: 14px;
-    line-height: 1.4;
-    overflow-x: hidden;
-}
-
-.container {
-    width: 70%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 10px 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    line-height: 1.6;
     min-height: 100vh;
-    box-sizing: border-box;
-}
-
-header {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    margin-bottom: 10px;
-    text-align: left;
-    width: 100%;
-}
-
-h1 {
-    font-size: 18px;
-    margin: 0 0 5px 0;
-    color: #333;
-    font-weight: 600;
-}
-
-nav {
-    margin: 0;
-    text-align: left;
-}
-
-nav a {
-    color: #666;
-    text-decoration: none;
-    margin: 0 12px 0 0;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: #333;
-}
-
-main {
-    margin: 0px auto;
-    padding: 0 10px;
-    width: 80%;
-}
-
-.box {
-    width: 100%;
-    max-width: 900px;
-    border: 1px solid #eee;
-    background: white;
-    padding: 10px;
-    margin: 5px 0;
-    box-sizing: border-box;
-    text-align: left;
-}
-
-form {
-    padding: 10px;
-    border: 1px solid #eee;
-    background: #fafafa;
-    width: 100%;
-    max-width: 900px;
-    margin: 5px 0;
-    box-sizing: border-box;  /* Ensure form fits within box */
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input {
-    width: calc(100% - 12px);  /* Adjusted for padding/margin */
-    padding: 6px;
-    margin: 0 0 5px 0;
-    border: 1px solid #ddd;
-    background: white;
-    box-sizing: border-box;
-}
-
-button {
-    background: #333;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    font-size: 14px;
-    cursor: pointer;
-    margin: 0 5px 0 0;
-}
-
-button:disabled {
-    background: #999;
-    cursor: not-allowed;
-}
-
-.flash {
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid transparent;
-    width: 100%;
-    max-width: 900px;
-    box-sizing: border-box;
-}
-
-/* Dashboard Styles */
-.filter-box {
-    width: 100%;
-    max-width: 900px;
-    border: 1px solid #eee;
-    background: white;
-    padding: 10px;
-    margin: 5px 0;
-    box-sizing: border-box;
-    text-align: left;
-}
-
-.filter-box select.dropdown {
-    padding: 6px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    background: white;
-    width: calc(100% - 12px);  /* Adjusted to fit within padding */
-    max-width: 280px;  /* Slightly reduced to ensure fit */
-    box-sizing: border-box;
-}
-
-.chart-container {
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: calc(100vh - 120px);
+  }
+  
+  /* ================
+     HEADER & NAVIGATION
+     ================ */
+  header {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  nav {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  nav a {
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  nav a:hover {
+    color: var(--primary-dark);
+  }
+  
+  /* ================
+     COMMON COMPONENTS
+     ================ */
+  .box {
+    background: var(--light-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: none;
+  }
+  
+  .box h2, .box h3 {
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* ================
+     DASHBOARD SPECIFIC
+     ================ */
+  .welcome-box {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stats-box {
+    border-left: 1px solid var(--border-color);
+  }
+  
+  .stats-box p {
+    margin: 1rem 0;
+    padding: 0.8rem;
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .filter-box {
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+  }
+  
+  .filter-box form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 100%;
+  }
+  
+  .dropdown {
+    padding: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    flex-grow: 1;
+  }
+  
+  .chart-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .chart-box {
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+  }
+  
+  .chart-box img {
     width: 100%;
-    max-width: 900px;
-    margin: 5px 0;
-    gap: 10px;
-}
-
-.chart-box {
-    width: 50%;
-    max-width: 445px;
-    border: 1px solid #eee;
-    background: white;
-    padding: 10px;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-.chart-box img {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
+    height: 350px; /* Fixed equal height for both charts */
+    object-fit: contain;
+    margin-top: 1rem;
+  }
+  
+  /* ================
+     FORM ELEMENTS
+     ================ */
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  label {
     display: block;
-}
-
-.stats-box p i,
-.filter-box label i,
-.chart-box h3 i,
-.info-box i,
-.instructions-box i {
-    margin-right: 5px;
-    color: #666;
-}
-
-/* Index Styles */
-.video-box {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+  
+  input {
     width: 100%;
-    max-width: 900px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    padding: 10px;
-    background: white;
-    box-sizing: border-box;
-}
-
-#video-stream {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-}
-
-/* Footer */
-footer {
-    border-top: 1px solid #ddd;
-    padding: 10px 0;
-    margin-top: 10px;
+    padding: 0.7rem;
+    margin-bottom: 1.5rem; /* Increased space */
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    transition: border 0.3s;
+    background-color: var(--light-color);
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--primary-dark);
+  }
+  
+  button {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 1rem; /* Added space between buttons */
+  }
+  
+  button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .delete-button {
+    background-color: var(--danger-color);
+    margin-top: 1.5rem; /* Added space above delete button */
+  }
+  
+  .delete-button:hover {
+    background-color: var(--danger-dark);
+  }
+  
+  /* ================
+     EDIT ACCOUNT SPECIFIC
+     ================ */
+  .edit-account-form button {
+    margin-bottom: 1rem;
+  }
+  
+  .edit-account-form .delete-button {
+    margin-top: 2rem;
+  }
+  
+  /* ================
+     UTILITY CLASSES
+     ================ */
+  .flex-center {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .flash {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+  }
+  
+  .flash.success {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    border-color: #00aa00;
+  }
+  
+  .flash.error {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    border-color: #aa0000;
+  }
+  
+  /* ================
+     FOOTER
+     ================ */
+  footer {
     text-align: center;
-    font-size: 12px;
-    color: #666;
-    width: 100%;
-}
-
-/* Other Pages */
-.university-details {
+    padding: 1.5rem;
+    color: var(--text-color);
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  /* ================
+     RESPONSIVE DESIGN
+     ================ */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    
+    .chart-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .filter-box form {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    #video-stream {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+/* ================
+   MISC ELEMENTS
+   ================ */
+   .university-logo {
+    max-width: 150px;
+    margin-bottom: 1rem;
+  }
+  
+  /* ================
+     UNIVERSITY SECTION
+     ================ */
+  .university-details {
     text-align: center;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .university-logo {
+    max-width: 150px;
+    margin-bottom: 1rem;
+    /* Original colors */
+    filter: none !important;
+  }
+  
+  .university-details h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .university-details p {
+    margin: 0.25rem 0;
+  }
 
-.university-logo {
-    width: 100px;
-    height: auto;
-    margin-bottom: 10px;
-}
-
+  /* ================
+   PROJECT GUIDE SECTION
+   ================ */
 .guide-details {
     text-align: center;
-}
-
-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .guide-details h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .guide-details p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  .fas {
+    margin-right: 0.5rem;
+  }
+  
+  table {
     width: 100%;
-    max-width: 900px;
     border-collapse: collapse;
-    margin: 5px 0;
-}
-
-table th, table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+  }
+  
+  th, td {
+    padding: 0.75rem;
     text-align: left;
-}
-
-table th {
-    background: #f4f4f4;
-}
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+  }
+  
+  th {
+    background-color: var(--light-color);
+    font-weight: bold;
+  }
+  
+  tr:last-child td {
+    border-bottom: none;
+  }
